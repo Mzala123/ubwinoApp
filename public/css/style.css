@@ -8027,15 +8027,15 @@ h1, h2, h3, h4, h5,
   box-shadow: none !important; }
   .appointment-form .form-control::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
-    color: rgba(255, 255, 255, 0.9); }
+  /*  color: rgba(255, 255, 255, 0.9); }
   .appointment-form .form-control::-moz-placeholder {
-    /* Firefox 19+ */
+    /* Firefox 19+ 
     color: rgba(255, 255, 255, 0.9); }
   .appointment-form .form-control:-ms-input-placeholder {
-    /* IE 10+ */
+    /* IE 10+ 
     color: rgba(255, 255, 255, 0.9); }
   .appointment-form .form-control:-moz-placeholder {
-    /* Firefox 18- */
+    /* Firefox 18- 
     color: rgba(255, 255, 255, 0.9); }
   .appointment-form .form-control:focus, .appointment-form .form-control:active {
     border-color: #fff; }
@@ -8106,7 +8106,7 @@ h1, h2, h3, h4, h5,
   .ftco-social a span {
     color: #fac564; }
 
-.form-control {
+/*.form-control {
   height: 58px !important;
   background: transparent !important;
   color: rgba(255, 255, 255, 0.9) !important;
@@ -8123,7 +8123,7 @@ h1, h2, h3, h4, h5,
 
 textarea.form-control {
   height: inherit !important; }
-
+*/
 .ftco-vh-100 {
   height: 100vh; }
   @media (max-width: 1199.98px) {
