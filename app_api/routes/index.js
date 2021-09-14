@@ -9,6 +9,11 @@ var auth = jwt({
 
 var ctrlAuth = require('../controllers/authentication');
 
+var ctrlBook = require('../controllers/booking');
+
+//booking
+router.post('/booking', ctrlBook.booking);
+
 // authentication
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);

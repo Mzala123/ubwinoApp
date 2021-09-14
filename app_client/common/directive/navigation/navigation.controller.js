@@ -1,11 +1,11 @@
 (function(){
+    angular
+       .module('ubwinoApp')
+       .controller('navigationCtrl', navigationCtrl);
 
-   angular
-      .module('ubwinoApp')
-      .controller('homeCtrl', homeCtrl);
+       navigationCtrl.$inject = ['$location', 'authentication'];
 
-      homeCtrl.$inject = ['$location', 'authentication'];
-       function homeCtrl($location, authentication){
+       function navigationCtrl($location, authentication){
            var vm = this;
            vm.currentPath = $location.path();
            vm.isLoggedIn = authentication.isLoggedIn();
@@ -16,5 +16,4 @@
                $location.path('/login');
            }
        }
-
-})();
+})

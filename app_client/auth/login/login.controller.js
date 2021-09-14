@@ -22,7 +22,7 @@
                }
                else{                
                    vm.doLogin();
-                   console.log("Logged In successfully");
+                   
                }
            };
            vm.doLogin = function(){      
@@ -32,7 +32,7 @@
               .then(function successCallback(response){  
                 $location.search('page', null);
                 $location.path(vm.returnPage);
-               
+                console.log("Logged In successfully");
             }
              ,function errorCallback(err){
                vm.formError= "Incorrect Credentials";           

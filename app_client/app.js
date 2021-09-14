@@ -21,6 +21,11 @@
                controller: 'loginCtrl',
                controllerAs: 'vm'
              })
+             .when('/booking',{
+              templateUrl: '/booking/booking.view.html',
+              controller: 'bookCtrl',
+              controllerAs: 'vm'
+            })
             .otherwise({ redirectTo: '/' });
           //$locationProvider.html5Mode(true);
             $locationProvider.html5Mode({
