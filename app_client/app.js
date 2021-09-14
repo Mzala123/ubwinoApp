@@ -8,7 +8,7 @@
         $routeProvider
             .when('/', {
                 templateUrl: 'home/home.view.html',
-                controller: 'homeCtrl',
+                controller:  'homeCtrl',
                 controllerAs: 'vm'
             })
             .when('/register', {
@@ -22,7 +22,7 @@
                controllerAs: 'vm'
              })
             .otherwise({ redirectTo: '/' });
-        // $locationProvider.html5Mode(true);
+          //$locationProvider.html5Mode(true);
             $locationProvider.html5Mode({
             enabled: true,
             requireBase: false

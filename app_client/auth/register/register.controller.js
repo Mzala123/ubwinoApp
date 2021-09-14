@@ -3,18 +3,18 @@
     angular
        .module('ubwinoApp')
        .controller('registerCtrl', registerCtrl);
-
-       function registerCtrl(){
+        
+       registerCtrl.$inject = ['$location','authentication'];
+       function registerCtrl($location, authentication){
            var vm = this;
-
            vm.credentials = {
-               name: "",
+               name : "",
                emai : "",
-               password: ""
+               password : ""
            };
-           
+           vm.returnPage = $location.search().page || '/login';
            vm.onSubmit = function(){
-               vm.formError = "";
+               vm.formError = "" ;
                if(!vm.credentials.name || !vm.credentials.email || !vm.credentials.password){
                 vm.formError = "All fields required, please try again";
                 return false;
@@ -24,7 +24,7 @@
                 vm.doRegister();
             }
            }
-           
+
            vm.doRegister = function(){
             
             vm.formError = "";
@@ -34,6 +34,7 @@
               .then(function successCallback(){
                $location.search('page', null);
                $location.path(vm.returnPage);
+               console.log("Registered user successfully");
             }
              ,function errorCallback(err){
                vm.formError= err;           

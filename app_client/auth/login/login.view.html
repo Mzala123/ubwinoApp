@@ -9,23 +9,27 @@
                                         <h1 class="h3 text-dark">Dir X ubwino</h1>
                                     </div>
                                     <form ng-submit="vm.onSubmit()">
+                                        <div role="alert" ng-show="vm.formError" class="alert alert-danger"> 
+                                            {{ vm.formError }}</div>
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="email" aria-describedby="emailHelp"
-                                                placeholder="Enter Email" name="email">
+                                                placeholder="Enter Email" name="email"
+                                                ng-model="vm.credentials.email">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="password" placeholder="Password" name="password">
+                                                id="password" placeholder="Password" name="password"
+                                                ng-model="vm.credentials.password">
                                         </div>
                                        
-                                        <button class="btn btn-primary btn-user btn-block">
-                                            Login
+                                        <button type="submit"  class="btn btn-primary btn-user btn-block">
+                                            Sign In
                                        </button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                     Dont have an Account? <a class="small" href="/#register">Sign Up</a>
+                                     Dont have an Account? <a class="small" href="/#register?page={{ vm.returnPage }}">Sign Up</a>
                                     </div>
                                 </div>
                     </div>

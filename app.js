@@ -13,6 +13,8 @@ require('./app_api/config/passport');
 var usersRouter = require('./routes/users');*/
 var routes = ('./app_server/routes/index');
 
+var routesApi = require('./app_api/routes/index');
+
 var app = express();
 
 // view engine setup
@@ -28,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'app_client')));
 
 //app.use('/', routes);
 //app.use('/users', usersRouter);
+app.use(passport.initialize());
+app.use('/api', routesApi);
 
 app.use(function(req, res){
   res.sendFile(path.join(__dirname, 'app_client', 'index.html'));

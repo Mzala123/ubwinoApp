@@ -1,6 +1,6 @@
 (function(){
     angular
-       .module('loc8rApp')
+       .module('ubwinoApp')
        .service('authentication', authentication);
 
        authentication.$inject = ['$http', '$window'];
@@ -39,7 +39,7 @@
                 return $http.post('/api/register', user).then(function successCallback(response){
                     var data = response.data;
                     saveToken(data.token);
-                    console.log("Iwee ukulandila token ait " +data);
+                    console.log("Iwee ukulandila token ait" +data);
                 })
             }
      
