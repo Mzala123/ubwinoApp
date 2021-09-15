@@ -6,6 +6,20 @@ body {
   background: url('../images1/Mainbg2.png') no-repeat fixed;
   background-size: cover;
  }
+
+ #carousel-image{
+  background: url('../images1/about.jpeg');
+  height: 70vh;
+  background-size: cover;
+ }
+ #carousel-image1{
+  background: url('../images1/abouts.jpeg');
+  height: 70vh;
+  background-size: cover;
+ }
+ .carousel-item{
+   border-radius: 4px;
+ }
  .navbar-brand {
   color: #FFF !important;
   font-size: 22px;
