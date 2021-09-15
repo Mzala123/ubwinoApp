@@ -11,6 +11,11 @@
                 controller:  'homeCtrl',
                 controllerAs: 'vm'
             })
+            .when('/about', {
+              templateUrl: '/about/about.view.html'
+              /*controller: 'registerCtrl',
+              controllerAs: 'vm' */
+           })
             .when('/register', {
                 templateUrl: '/auth/register/register.view.html',
                 controller: 'registerCtrl',

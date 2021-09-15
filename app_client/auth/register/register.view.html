@@ -12,28 +12,29 @@
                                 <form ng-submit="vm.onSubmit()">
                                     <div role="alert" ng-show="vm.formError" class="alert alert-danger"> 
                                         {{ vm.formError }} </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-3">
                                         <input type="text" class="form-control form-control-user"
                                             id="name" 
                                             placeholder="Enter Fullname" name="name"
                                             ng-model="vm.credentials.name">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group mb-3">
                                         <input type="email" class="form-control form-control-user"
                                             id="email" 
                                             placeholder="Enter Email" name="email"
                                             ng-model="vm.credentials.email">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-3">
                                         <input type="password" class="form-control form-control-user"
                                             id="password" placeholder="Enter Password" name="password"
                                             ng-model="vm.credentials.password">
                                     </div>
-                                   
+                                   <div class="d-grid mb-3">
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
                                         Register
                                    </button>
+                                  </div>
                                 </form>
                                 <hr>
                                 <div class="text-center">

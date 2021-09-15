@@ -12,7 +12,7 @@
                email : "",
                password: ""
            };
-           vm.returnPage = $location.search().page || '/';
+           vm.returnPage = $location.search().page || '/booking';
 
            vm.onSubmit = function(){
                vm.formError = "";
@@ -21,8 +21,7 @@
                    return false;
                }
                else{                
-                   vm.doLogin();
-                   
+                   vm.doLogin(); 
                }
            };
            vm.doLogin = function(){      
