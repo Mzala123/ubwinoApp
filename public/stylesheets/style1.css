@@ -3,18 +3,19 @@ body {
   font-family: "Poppins", Arial, sans-serif;
   font-size: 14px;
   font-weight: 350px;
-  background: url('../images1/Mainbg2.png') no-repeat fixed;
-  background-size: cover;
+ /* background: url('../images1/Mainbg2.png') no-repeat fixed;
+  background-size: cover;*/
+  background-color:whitesmoke;
  }
 
  #carousel-image{
   background: url('../images1/about.jpeg');
-  height: 70vh;
+  height: 60vh;
   background-size: cover;
  }
  #carousel-image1{
   background: url('../images1/ubwinos.jpg');
-  height: 70vh;
+  height: 60vh;
   background-size: cover;
  }
  .carousel-item{
