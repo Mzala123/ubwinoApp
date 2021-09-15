@@ -85,3 +85,7 @@ body {
   flex-direction: row-reverse;
   justify-content:space-between ;
 }
+
+#about_card {
+  background-color: transparent;
+}
