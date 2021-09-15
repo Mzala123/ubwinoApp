@@ -18,9 +18,15 @@ body {
   height: 60vh;
   background-size: cover;
  }
+ #identifierImage{
+  background: url('../images1/Mainbg2.png');    
+  height: 6vh;
+  background-size: cover;    
+ }
  .carousel-item{
    border-radius: 4px;
  }
+
  .navbar-brand {
   color: #FFF !important;
   font-size: 22px;
@@ -89,4 +95,12 @@ body {
 
 #about_card {
   background-color: transparent;
+}
+
+.navbar-toggler{
+  background-color: #eff4f5;
+  
+}
+.navbar-toggler-icon{
+  background-color: #eff4f5;
 }
