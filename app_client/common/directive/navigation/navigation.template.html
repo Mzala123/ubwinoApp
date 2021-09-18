@@ -28,15 +28,16 @@
       </button>
       </div>
       <div class="collapse navbar-collapse text-white" id="navbarTogglerDemo01">
-        <a ng-hide="vm.isLoggedIn" class="navbar-brand" href="">Dir X Ubwino<br><small>BookMe</small></a>
+        <a ng-hide="vm.isLoggedIn" class="navbar-brand" href="/">Dir X Ubwino<br><small>BookMe</small></a>
         <a ng-show="vm.isLoggedIn" class="navbar-brand" href="/#booking">Dir X Ubwino<br><small>BookMe</small></a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         </ul>
         <ul class="nav navbar-nav navbar-right">
+           <!-- <li ng-hide="vm.isLoggedIn" class="nav-item"><a href="/" class="nav-link">Home</a></li>-->
             <li ng-hide="vm.isLoggedIn" class="nav-item"><a href="/#about" class="nav-link">Services</a></li>
             <li ng-hide="vm.isLoggedIn" class="nav-item"><a href="/#about" class="nav-link">About</a></li>
             <li ng-hide="vm.isLoggedIn" class="nav-item"><a href="/#about" class="nav-link">Terms & conditions</a></li>
-            <li ng-show="vm.isLoggedIn" class="nav-item"><a href="/" class="nav-link">Scheduled Events</a></li>
+            <li ng-show="vm.isLoggedIn" class="nav-item"><a href="" class="nav-link">Scheduled Events</a></li>
             <li ng-hide="vm.isLoggedIn" class="nav-item"><a href="/#login" class="nav-link">SIGN IN</a></li>
             <li ng-show="vm.isLoggedIn" class="nav-item"><a class="nav-link" href="/#login">SIGN OUT</a></li>
        </ul>

@@ -35,6 +35,27 @@ var sendJsonResponse = function(res, status, content){
      })
  }
 
+ /*module.exports.verifyEmail= function(req, res){
+    if(req.params && req.params.email){
+          Loc
+           .findOne(req.params.email)
+           .exec(function(err, user){
+            sendJsonResponse(res, 200, {"Message": user.email});
+            console.log("The retrieved email "+ user.email);
+              /* if(user){
+                sendJsonResponse(res, 200, user.email);
+                console.log("The retrieved email "+ user.email);
+                return;
+               }
+               else{
+                sendJsonResponse(res, 201, {"message":"Continue creating account"});
+                return;
+               }
+           })
+    }
+   
+ };*/
+
  module.exports.login = function(req, res){
      if(!req.body.email || !req.body.password){
          sendJsonResponse(res, 404, {

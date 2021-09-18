@@ -1,0 +1,32 @@
+<navigation></navigation>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="card shadow-sm my-3">
+                <div class="card-body p-2">
+                    <img id="identifierImage" class="card-img-top">
+                    <div class="card-header  d-flex justify-content-center p-1">
+                        <i class="fa fa-user-circle" style="font-size:60px;color:#1e656d;"></i>
+                    </div>
+                    <div class="card-header d-flex justify-content-center p-2">
+                        <p class="text-dark" style="font-weight: bold;">Client {{ vm.currentUser.name }} </p>
+                    </div>
+                    <div class="card-text d-flex justify-content-center p-4">
+                        <p style="font-size: 12px;">Welcome to ubwinoScheduler</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-lg-8">
+            <div class="d-grid mb-3 p-3">
+             <a ng-click="vm.popupEventForm()" class="btn btn-primary btn-user btn-block">   
+                   Schedule Appointment </a>
+            </div>
+        </div>
+
+   </div>
+</div>
+
+<footer-generic></footer-generic>

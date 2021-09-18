@@ -48,5 +48,5 @@ process.on('SIGINT', function(){
     });
 });
 
-//require('./locations');
+require('./events');
 require('./users');

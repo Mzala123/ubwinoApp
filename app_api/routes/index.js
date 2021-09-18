@@ -16,6 +16,7 @@ router.post('/booking', ctrlBook.booking);
 
 // authentication
 router.post('/register', ctrlAuth.register);
+//router.get('register/:email', ctrlAuth.verifyEmail);
 router.post('/login', ctrlAuth.login);
 
 module.exports = router;
