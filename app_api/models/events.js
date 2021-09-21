@@ -15,13 +15,13 @@ var transactionSchema = new mongoose.Schema({
 });
 
 var eventSchema = new mongoose.Schema({
-    clientName: {type: String, required: true},
+    clientName: {type: Array, required: true},
     eventType : {type: String, required: true},
     eventDescription: {type: String, required: true},
-    startDate: {type: Date, required: true},
-    endDate: {type: Date, required:true},
-    startTime: {type: Date, required:true},
-    endTime: {type:Date, required: true},
+    startDate: {type: String, required: true},
+    endDate: {type: String, required:true},
+    startTime: {type: String, required:true},
+    endTime: {type: String, required: true},
     status: {type: String, "default": "scheduled"},
     reviews:[reviewSchema]
 });

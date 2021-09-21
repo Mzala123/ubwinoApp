@@ -1,7 +1,8 @@
 <navigation></navigation>
 
+<form ng-submit="vm.onSubmit()">
 <div class="container">
-    <div class="row">
+    <div class="row mt-2">
         <div class="col-12 col-md-4 col-lg-3">
             <div class="card shadow-sm my-3">
                 <div class="card-body p-2">
@@ -10,7 +11,8 @@
                         <i class="fa fa-user-circle" style="font-size:60px;color:#1e656d;"></i>
                     </div>
                     <div class="card-header d-flex justify-content-center p-2">
-                        <p class="text-dark" style="font-weight: bold;">Client {{ vm.currentUser.name }} </p>
+                        <p ng-model="vm.formData.clientName" class="text-dark" style="font-weight: bold;">
+                         Client {{ vm.currentUser.name }} </p>
                     </div>
                     <div class="card-text d-flex justify-content-center p-4">
                         <p style="font-size: 12px;">Welcome to ubwinoScheduler</p>
@@ -18,15 +20,84 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col-md-4 col-lg-8">
-            <div class="d-grid mb-3 p-3">
-             <a ng-click="vm.popupEventForm()" class="btn btn-primary btn-user btn-block">   
-                   Schedule Appointment </a>
+            <div class="card o-hidden border-0 shadow-sm my-3">
+                <div class="card-header d-flex justify-content-center" style="font-weight: bold; 
+                        background-color: #1e656d; color: white;">
+                    <h6>SCHEDULE EVENT APPOINTMENT</h6>
+                </div>
+                <div class="card-body p-4">
+                   <!-- <form ng-submit="vm.onSubmit()">-->
+                        <div role="alert" ng-show="vm.formError" class="alert alert-danger">
+                            {{ vm.formError }}
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md mb-4">
+                                <select name="eventType" id="eventType" class="form-select" 
+                                ng-model="vm.formData.eventType" aria-label="Default select example">
+                                    <option selected>Select event type </option>
+                                    <option>Photography</option>
+                                    <option>Videograpy</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6 mb-4">
+                                <div class=" input-group">
+                                    <span class="input-group-text" style="background-color: #1e656d; color:
+                                     white; font-size: 12;">Start Date</span>
+                                    <input type="date" name="startDate" id="startDate" ng-model="vm.formData.startDate"
+                                     class="form-control" placeholder="Username"
+                                        aria-label="Username">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 mb-4">
+                                <div class=" input-group mb-4">
+                                    <span class="input-group-text" style="background-color: #1e656d; color: white;
+                                    font-size: 12;">End Date</span>
+                                    <input type="date" class="form-control" id="endDate" name="endDate"
+                                     ng-model="vm.formData.endDate" placeholder="Username" aria-label="Username">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6 mb-4">
+                                <div class=" input-group">
+                                    <span class="input-group-text" style="background-color: #1e656d; color: white;
+                                    font-size: 12;">Start Time</span>
+                                    <input type="time" class="form-control" placeholder="Username" id="startTime"
+                                        name="startTime" ng-model="vm.formData.startTime" aria-label="Username">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 mb-4">
+                                <div class=" input-group mb-4">
+                                    <span class="input-group-text" style="background-color: #1e656d; color: white;
+                                    font-size: 12;">End Time</span>
+                                    <input type="time" class="form-control" id="endTime" name="endTime"
+                                    ng-model="vm.formData.endTime" placeholder="Username"
+                                        aria-label="Username">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating col-md mb-4">
+                            <textarea class="form-control" name="eventDescription"  placeholder="Leave a comment here" id="floatingTextarea2"
+                             ng-model="vm.formData.eventDescription" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Event Description</label>
+                        </div>
+                        <div class="form-floating col-md mb-4 d-flex justify-content-end">
+                            <button type="submit" class="btn btn-success" style="background-color:#1e656d;">Schedule Event</button>
+                        </div>
+                   <!-- </form>-->
+                </div>
             </div>
+            <!--<a ng-click="vm.popupEventForm()">   
+               <button class="btn btn-primary"> Schedule Appointment</button></a>
+              <a ng-click="vm.popupEventForm()" class="btn btn-success"> Create appointment</a>-->
+
         </div>
 
-   </div>
+    </div>
 </div>
-
+</form>
 <footer-generic></footer-generic>

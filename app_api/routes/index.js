@@ -12,7 +12,11 @@ var ctrlAuth = require('../controllers/authentication');
 var ctrlBook = require('../controllers/booking');
 
 //booking
-router.post('/booking', ctrlBook.booking);
+router.get('/booking', ctrlBook.appointmentByName);
+router.post('/bookings', ctrlBook.appointmentCreate);
+router.get('/bookings/:appointmentid', ctrlBook.appointmentReadOne);
+router.put('/bookings/:appointmentid', ctrlBook.appointmentUpdateOne);
+router.delete('/bookings/:appointmentid', ctrlBook.appointmentDeleteOne);
 
 // authentication
 router.post('/register', ctrlAuth.register);
