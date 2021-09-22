@@ -10,14 +10,19 @@ angular
        var createSchedule = function(scheduleData){
            return $http.post('/api/bookings',scheduleData).then(function successCallback(response){
             var data = response.data;
-            console("Kodi data ya schedule sikupeani", +data);
+            console.log("Kodi data ya schedule sikupeani", +data);
         },function errorCallback(err){
              console.log(err);       
             });
        }
 
+       var getAppointmentByName = function(){
+
+       }
+
        return{
-           createSchedule : createSchedule     
+           createSchedule : createSchedule,
+           getAppointmentByName : getAppointmentByName    
        }
    }
 

@@ -39,13 +39,15 @@ var sendJsonResponse = function(res, status, content){
       //sendJsonResponse(res, 200, {"Status":"Success"});
  };
 
+
+
  module.exports.appointmentDeleteOne = function(req, res){
          var appointmentid = req.params.appointmentid;
          if(appointmentid){
              Appointment
                  .findByIdAndRemove(appointmentid)
                  .exec(
-                     function(err, location){
+                     function(err, appointment){
                          if(err){
                            sendJsonResponse(res, 404, err);
                            return;
@@ -59,8 +61,51 @@ var sendJsonResponse = function(res, status, content){
          }
  }
 
- module.exports.appointmentByName = function(req, res){
+ /*module.exports.appointmentByName = function(req, res){
+      if(req.params && req.params.clientName){
+          Appointment
+              .findById(req.params.clientName)
+              .exec(function(err, appointment){
+                  if(!appointment){
+                    sendJsonResponse(res, 404, {"message" : "You haven't Scheduled an appointment"});
+                    return;
+                  }
+                  else if(err){
+                     sendJsonResponse(res, 404, err);
+                     return;
+                  }
+                  else{
+                      sendJsonResponse(res, 200, appointment);
+                  }
+              })
+      }
+      else{
+        sendJsonResponse(res, 404, {"message" : "no Appointment schedule in request"});
+    }
+ }*/
 
+ module.exports.appointmentByName = function(req, res){
+     var name = req.query.name;
+     var email = req.query.email;
+     if( !name || !email){
+         sendJsonResponse(res, 404, {"message":"name & email are required"});
+     }
+      else 
+        { 
+          Appointment
+            .find({clientName:{$elemMatch:{email, name}}})
+            .exec(function(err, appointment){
+                if(!appointment){
+                 sendJsonResponse(res, 404, {"message":"You havent scheduled any appointment"});
+                }
+                else if(err){
+                 sendJsonResponse(res,404, err);
+                 return;
+                }
+                sendJsonResponse(res, 200, appointment);
+            })
+     
+        }
  }
 
  module.exports.appointmentReadOne = function(req, res){

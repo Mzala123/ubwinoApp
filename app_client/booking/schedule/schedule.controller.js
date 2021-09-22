@@ -21,6 +21,7 @@
             vm.formError = "";
             if (!vm.formData.eventDescription) {
                 vm.formError = "Please fill in all fields";
+                          
             }
             else {
                  console.log("ClientName is " +vm.formData.clientName);
@@ -34,7 +35,7 @@
             vm.formError = "";
             schedule.createSchedule(vm.formData)
             .then(function successCallback(){
-               /* $location.search('page', null);
+               /*$location.search('page', null);
                 $location.path(vm.returnPage);*/
                 console.log("Event Scheduled successfully");
              }
@@ -80,4 +81,4 @@
 
     }
 
-})()
+})();

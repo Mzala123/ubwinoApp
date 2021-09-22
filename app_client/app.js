@@ -46,6 +46,11 @@
               controller: 'scheduleCtrl',
               controllerAs: 'vm'
             })
+            /*.when('/scheduledEvents',{
+              templateUrl: '/booking/eventList/eventList.view.html',
+              controller: 'eventListCtrl',
+              controllerAs: 'vm'
+            })*/
             .otherwise({ redirectTo: '/' });
           //$locationProvider.html5Mode(true);
             $locationProvider.html5Mode({
