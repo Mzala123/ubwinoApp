@@ -16,13 +16,10 @@ angular
             });
        }
 
-       var getAppointmentByName = function(){
-
-       }
-
+      
        return{
-           createSchedule : createSchedule,
-           getAppointmentByName : getAppointmentByName    
+           createSchedule : createSchedule
+           
        }
    }
 

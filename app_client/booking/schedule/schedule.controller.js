@@ -41,44 +41,8 @@
              }
               ,function errorCallback(err){
                 vm.formError= err;           
-             });       
-           /* schedule.createSchedule(
-                {
-                    clientName: formData.clientName,
-                    eventType: formData.eventType,
-                    eventDescription: formData.eventDescription,
-                    startDate: formData.startDate,
-                    endDate: formData.endDate,
-                    startTime: formData.startTime,
-                    endTime: formData.endTime
-
-                }).then(function successCallback(data){
-                    //var data = response.data;
-                      console.log('appointment created successfully');
-                      vm.modal.close(data);
-                     
-                  }
-                  ,function errorCallback(data){
-                      vm.formError = "Failed to schedule appointment";
-                     //console.log(response);
-                });
-                return false;*/
+             });                 
         }
-
-
-        /*var loggedUser = vm.currentUser;
-        console.log(loggedUser)*/
-
-        /*vm.popupEventForm = function(){
-           var instanceModal = $uibModal.open({
-                size:'lg',
-                templateUrl: '/eventModal/eventModal.view.html',
-                controller: 'eventModalCtrl as vm',
-            });
-           
-        // alert("Lets add an event");
-        }*/
-
     }
 
 })();

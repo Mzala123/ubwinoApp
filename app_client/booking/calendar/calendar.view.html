@@ -9,10 +9,14 @@
                     <div class="card-header  d-flex justify-content-center p-1">
                         <i class="fa fa-user-circle" style="font-size:60px;color:#1e656d;"></i>
                     </div>
+                   
                     <div class="card-header d-flex justify-content-center p-2">
                         <p ng-model="vm.formData.clientName" class="text-dark" style="font-weight: bold;">
                          Client {{ vm.currentUser.name }} </p>
+                        <!--<p ng-model="vm.formData.clientEmail" class="text-dark" style="font-weight: bold;">
+                            Client {{ vm.currentUser.email}} </p>-->
                     </div>
+                    
                     <div class="card-text d-flex justify-content-center p-4">
                         <p style="font-size: 12px;">Welcome to ubwinoScheduler</p>
                     </div>
@@ -23,25 +27,36 @@
         <div class="col-md-4 col-lg-9">
             <div class="card o-hidden border-0 shadow-sm my-3">
                 <div class="card-header d-flex justify-content-center" style="font-weight: bold; 
-                        background-color: #1e656d; color: white;">
+                        background-color:white; color:black;">
                     <h6>MY APPOINTMENT LIST</h6>
                 </div>
                 <div class="card-body p-4" style="background-color: #1e656d;">
                    <!-- <form ng-submit="vm.onSubmit()">-->
+                    <p>
+                    <label for="filter" style="color: white;">Find Scheduled appointment</label>
+                    <input id="filter" type="text", name="filter", ng-model="textFilter"></p>
                  <div class="error">{{ vm.formError }}</div>
                   <div class="row list-group">
-                    <div class="col-xs-12 list-group-item" ng-repeat="location in vm.data.locations 
-                    | filter : textFilter">
-                    <h4>
-
-                        <!--<a href="/#/location/{{ location._id }}">{{ location.name }}</a>
-                        <small class="rating-stars" rating-stars rating="location.rating"></small>
-                        <span class="badge pull-right badge-default"> {{ location.distance | formatDistance}}</span> -->
-                    </h4>
-                    <!--<p class="address"> {{ location.address }} </p>
-                    <p>
-                        <span class="label label-warning label-facility" ng-repeat="facility in location.facilities"> {{ facility }} </span>
-                    </p> -->
+                    <div class="col-xs-12 list-group-item" ng-repeat="appointment in vm.data.appointments 
+                    | filter : textFilter" style="background-color: #2f757c;">
+                    <p><h4>
+                       <a href="">{{ appointment.eventType }}</a>
+                        <!--<a href="/#/location/{{ location._id }}">{{ location.name }}</a>-->
+                        <!--<small class="rating-stars" rating-stars rating="location.rating"></small>-->
+                        <span class="badge pull-right badge-default"> <button class="btn btn-primary">Cancel</button></span>
+                    </h4></p>
+                       <p class="address">
+                        <label style="color: white;">Start time - {{ appointment.startDate | date }}</label>
+                        <label class="pull-right" style="color: white;"> End date - {{ appointment.endDate | date }} </label> </p>
+                       <p>
+                       <p class="address">
+                            <label style="color: white;">Start time - {{ appointment.startTime | date:'HH:mm' }}</label>
+                            <label class="pull-right" style="color: white;"> End Time - {{ appointment.endTime | date:'HH:mm' }} </label> </p>
+                       <p>
+                        <p>
+                            <label style="color: white;">Event Description - {{ appointment.eventDescription }}</label>
+                        </p>   
+                    </p> 
                   </div>
                   </div>
                 </div>

@@ -1,24 +1,7 @@
-<!--<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-    <div class="container">
-        <a class="navbar-brand" href="/"><span class="flaticon-home-1 mr-1"></span>Dir X Ubwino<br><small>BookMe</small></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> Menu
-        </button>
-        <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="/#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Terms & conditions</a></li>
-                <li ng-hide="navvm.isLoggedIn" class="nav-item"><a href="/#login" class="nav-link">SIGN IN</a></li>
-                <li ng-show="navvm.isLoggedIn" class="nav-item"><a href="/#login" class="nav-link">SIGN OUT</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>-->
 
-<nav id="navbar_top" class="navbar navbar-expand-lg navbar-light navbar-fixed" style="background-color: #1e656d;">
+
+
+<nav id="navbar_top" class="navbar navbar-expand-lg navbar-light" style="background-color: #1e656d;">
     <div class="container" id="navBarFlex">
       <div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
@@ -37,7 +20,7 @@
             <li ng-hide="vm.isLoggedIn" class="nav-item"><a href="/#about" class="nav-link">Services</a></li>
             <li ng-hide="vm.isLoggedIn" class="nav-item"><a href="/#about" class="nav-link">About</a></li>
             <li ng-hide="vm.isLoggedIn" class="nav-item"><a href="/#about" class="nav-link">Terms & conditions</a></li>
-            <li ng-show="vm.isLoggedIn" class="nav-item"><a href="/#calendar" class="nav-link">Scheduled Events</a></li>
+            <li ng-show="vm.isLoggedIn" ng-click="vm.calendarList()" class="nav-item"><a href="/#calendar" class="nav-link">Scheduled Events</a></li>
             <li ng-hide="vm.isLoggedIn" class="nav-item"><a href="/#login" class="nav-link">SIGN IN</a></li>
             <li ng-show="vm.isLoggedIn" class="nav-item"><a class="nav-link" href="/#login">SIGN OUT</a></li>
        </ul>

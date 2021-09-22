@@ -103,6 +103,7 @@ var sendJsonResponse = function(res, status, content){
                  return;
                 }
                 sendJsonResponse(res, 200, appointment);
+                console.log(appointment);
             })
      
         }
