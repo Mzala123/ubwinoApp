@@ -15,11 +15,8 @@
       vm.formData={};
       vm.formData.clientName = authentication.currentUser();
       console.log(vm.formData.clientName.email);
-      
-      /*console.log("The email is " +vm.formData.email); 
-      console.log("The name is " +vm.formData.name); */
-
-      vm.calendarList = function () {
+      //vm.calendarList = function () {
+         
          calendly.getAppointmentByName(vm.formData.clientName.email, vm.formData.clientName.name)
             .then(function successCallback(response) {
                var data = response.data;
@@ -32,8 +29,7 @@
                   vm.formError = "No such data";
                   console.log(response);
              });
-
-      }
+      //}
    }
 
 })();
