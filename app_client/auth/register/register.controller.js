@@ -12,32 +12,47 @@
                emai : "",
                password : ""
            };
-           vm.returnPage = $location.search().page || '/login';
+           vm.currentPath = $location.path();
+           //vm.returnPage = $location.search().page || '/login';
+          
+
            vm.onSubmit = function(){
-               vm.formError = "" ;
+               //vm.formError = "" ;
                if(!vm.credentials.name || !vm.credentials.email || !vm.credentials.password){
-                vm.formError = "All fields required, please try again";
+                swal({
+                    title: "Registering Client Account!",
+                    text: "Please fill in all fields !",
+                    icon: "warning",
+                    button: "OK"
+                  });
+                //vm.formError = "All fields required, please try again";
                 return false;
                }
                else{
                 console.log("Tafikamo muno tionetu");
                 vm.doRegister();
+               
             }
            }
 
            vm.doRegister = function(){
-            
-            vm.formError = "";
-            
+            vm.emailCheck = "";
             authentication
               .register(vm.credentials)
               .then(function successCallback(){
-               $location.search('page', null);
-               $location.path(vm.returnPage);
+                swal({
+                    title: "Registering Client Account!",
+                    text: "Client Account Registered!",
+                    icon: "success",
+                    button: "OK"
+                  });
+               //$location.search('page', null);
+               $location.path('/login');
                console.log("Registered user successfully");
             }
              ,function errorCallback(err){
-               vm.formError= err;           
+               vm.emailCheck="";
+               vm.emailCheck= "Email might already be registered with another account";           
             });       
         }
        }

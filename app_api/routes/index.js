@@ -20,7 +20,7 @@ router.delete('/bookings/:appointmentid', ctrlBook.appointmentDeleteOne);
 
 // authentication
 router.post('/register', ctrlAuth.register);
-//router.get('register/:email', ctrlAuth.verifyEmail);
+router.post('/verify', ctrlAuth.verifyEmail);
 router.post('/login', ctrlAuth.login);
 
 module.exports = router;

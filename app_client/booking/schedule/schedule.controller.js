@@ -16,16 +16,17 @@
 
         vm.formData = {};
         vm.formData.clientName = authentication.currentUser();
-       //vm.formData.clientName = authentication.currentUser();
         vm.onSubmit = function () {
             vm.formError = "";
             if (!vm.formData.eventDescription) {
-                vm.formError = "Please fill in all fields";
-                          
+                swal({
+                    title: "Scheduling appointment!",
+                    text: "Please fill in all fields !",
+                    icon: "warning",
+                    button: "OK"
+                  });         
             }
             else {
-                 console.log("ClientName is " +vm.formData.clientName);
-                 console.log("The appointment data is " +vm.formData);
                  vm.doCreateAppointment();
             }
 
@@ -35,12 +36,22 @@
             vm.formError = "";
             schedule.createSchedule(vm.formData)
             .then(function successCallback(){
-               /*$location.search('page', null);
-                $location.path(vm.returnPage);*/
+                swal({
+                    title: "Scheduling appointment!",
+                    text: "Appointment Scheduled successfull",
+                    icon: "success",
+                    button: "Yes"
+                  });
                 console.log("Event Scheduled successfully");
              }
               ,function errorCallback(err){
-                vm.formError= err;           
+                swal({
+                    title: "Scheduling appointment",
+                    text: "Failed to schedule and appoitment",
+                    icon: "error",
+                    button: "0k"
+                  });
+                 console.log(err);           
              });                 
         }
     }

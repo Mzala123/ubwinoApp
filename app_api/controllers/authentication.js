@@ -35,26 +35,29 @@ var sendJsonResponse = function(res, status, content){
      })
  }
 
- /*module.exports.verifyEmail= function(req, res){
-    if(req.params && req.params.email){
-          Loc
-           .findOne(req.params.email)
-           .exec(function(err, user){
-            sendJsonResponse(res, 200, {"Message": user.email});
-            console.log("The retrieved email "+ user.email);
-              /* if(user){
-                sendJsonResponse(res, 200, user.email);
-                console.log("The retrieved email "+ user.email);
-                return;
-               }
-               else{
-                sendJsonResponse(res, 201, {"message":"Continue creating account"});
-                return;
-               }
-           })
+ module.exports.verifyEmail= function(req, res){
+    var email = req.query.email;
+    if(!email){
+        sendJsonResponse(res, 404, {"message":"email are required"});
     }
-   
- };*/
+    else{
+        User
+          .findOne({email: email})
+          .exec(function(err, user){
+              if(!user){
+                 sendJsonResponse(res, 201, {"Message":"You can continue as this email is not used by anyone"});
+                 //return res.statusCode;
+                 console.log("the status code is" ,res.statusCode);
+                }
+              else{
+                 sendJsonResponse(res, 200, {"Message":"This email is already registered with another account"});
+                 //return res.statusCode;
+                 console.log("The status code is", res.statusCode);
+              }
+
+          });
+    }
+ };
 
  module.exports.login = function(req, res){
      if(!req.body.email || !req.body.password){

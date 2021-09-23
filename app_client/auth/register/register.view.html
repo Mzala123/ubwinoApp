@@ -10,8 +10,8 @@
                                     <h1 class="h3 text-dark">Dir X ubwino</h1>
                                 </div>
                                 <form ng-submit="vm.onSubmit()">
-                                    <div role="alert" ng-show="vm.formError" class="alert alert-danger"> 
-                                        {{ vm.formError }} </div>
+                                    <!--<div role="alert" ng-show="vm.formError" class="alert alert-danger"> 
+                                        {{ vm.formError }} </div>-->
                                     <div class="form-group mb-3">
                                         <input type="text" class="form-control form-control-user"
                                             id="name" 
@@ -25,6 +25,9 @@
                                             placeholder="Enter Email" name="email"
                                             ng-model="vm.credentials.email">
                                     </div>
+                                    <div role="alert" ng-show="vm.emailCheck" class="alert alert-danger"> 
+                                        {{ vm.emailCheck }} </div>
+
                                     <div class="form-group mb-3">
                                         <input type="password" class="form-control form-control-user"
                                             id="password" placeholder="Enter Password" name="password"
