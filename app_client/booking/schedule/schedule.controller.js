@@ -47,7 +47,7 @@
               ,function errorCallback(err){
                 swal({
                     title: "Scheduling appointment",
-                    text: "Failed to schedule and appoitment",
+                    text: "Failed to schedule an appoitment",
                     icon: "error",
                     button: "0k"
                   });
