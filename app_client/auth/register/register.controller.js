@@ -37,13 +37,13 @@
         vm.doRegister = function(){
             authentication.register(vm.credentials)
                 .then(function successCallback() {
-                    Alert("Client Registered Successfully");
-                    /*swal({
+                    //Alert("Client Registered Successfully");
+                    swal({
                         title: "Registering Client Account!",
                         text: "Client Registered successfully!",
                         icon: "success",
                         button: "OK"
-                    });*/
+                    });
                     /// $location.search('page', null);
                     $location.path('/login');
                     console.log("Registered user successfully");
