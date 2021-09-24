@@ -104,3 +104,17 @@ body {
 .navbar-toggler-icon{
   background-color: #eff4f5;
 }
+
+#appointmentBtn{
+  color: #ffffff;
+  border-color:#fac564;
+  font-size:12px;
+  height: 30px;
+}
+#appointmentBtn:hover {
+  color: #000000;
+  background-color: #eff4f5;
+  border-color: #fac564;
+
+  /*border-radius: 0px;*/ 
+}

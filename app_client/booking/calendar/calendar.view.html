@@ -39,12 +39,19 @@
                   <div class="row list-group">
                     <div class="col-xs-12 list-group-item" ng-repeat="appointment in vm.data.appointments 
                     | filter : textFilter" style="background-color: #2f757c;">
-                    <p><h4>
+                    <p> 
+                        <h4>
                        <a href="">{{ appointment.eventType }}</a>
-                        <!--<a href="/#/location/{{ location._id }}">{{ location.name }}</a>-->
-                        <!--<small class="rating-stars" rating-stars rating="location.rating"></small>-->
-                        <span class="badge pull-right badge-default"> <button class="btn btn-primary">Cancel</button></span>
-                    </h4></p>
+                        <span class="badge pull-right badge-default"> 
+                        <button id="appointmentBtn" class="btn btn-outline-warning"
+                          ng-click="vm.cancelAppointment(appointment._id)"> Cancel </button>
+
+                        <button  id="appointmentBtn" class="btn btn-outline-warning" 
+                            ng-click="vm.updateAppointment(appointment._id)">update</button>
+                      </span>
+                        <span class="badge pull-right badge-default"></span>
+                    </h4>
+                   </p>
                        <p class="address">
                         <label style="color: white;">Start time - {{ appointment.startDate | date }}</label>
                         <label class="pull-right" style="color: white;"> End date - {{ appointment.endDate | date }} </label> </p>

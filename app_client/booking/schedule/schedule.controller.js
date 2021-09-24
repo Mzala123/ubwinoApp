@@ -28,6 +28,7 @@
             }
             else {
                  vm.doCreateAppointment();
+             
             }
 
         };

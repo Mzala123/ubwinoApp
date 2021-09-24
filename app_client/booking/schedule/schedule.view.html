@@ -34,12 +34,15 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md mb-4">
-                                <select name="eventType" id="eventType" class="form-select" 
-                                ng-model="vm.formData.eventType" aria-label="Default select example">
-                                    <option selected>Select event type </option>
-                                    <option>Photography</option>
-                                    <option>Videograpy</option>
-                                </select>
+                                <div class="form-floating">
+                                    <select name="eventType" id="eventType" ng-model="vm.formData.eventType"
+                                    class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                      <option>Photography</option>
+                                      <option>Videograpy</option>
+                                    </select>
+                                    <label for="floatingSelect">Select event type</label>
+                                </div>
+
                             </div>
                         </div>
                         <div class="row">
