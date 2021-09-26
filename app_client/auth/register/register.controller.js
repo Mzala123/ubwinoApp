@@ -12,12 +12,11 @@
             emai: "",
             password: ""
         };
-        //vm.currentPath = $location.path();
-        vm.returnPage = $location.search().page || '/login';
+        vm.currentPath = $location.path();
+        //vm.returnPage = $location.search().page || '/login';
 
 
         vm.onSubmit = function () {
-            //vm.formError = "" ;
             if (!vm.credentials.name || !vm.credentials.email || !vm.credentials.password) {
                 swal({
                     title: "Registering Client Account!",
@@ -25,7 +24,6 @@
                     icon: "warning",
                     button: "OK"
                 });
-                //vm.formError = "All fields required, please try again";
                 return false;
             }
             else {
@@ -36,21 +34,26 @@
 
         vm.doRegister = function(){
             authentication.register(vm.credentials)
-                .then(function successCallback() {
-                    //Alert("Client Registered Successfully");
+                .then(function successCallback(response) {
                     swal({
                         title: "Registering Client Account!",
                         text: "Client Registered successfully!",
                         icon: "success",
                         button: "OK"
-                    });
-                    /// $location.search('page', null);
-                    $location.path('/login');
+                    }).then(function(){
+                       $location.path('/login');
+                    })  
                     console.log("Registered user successfully");
                 }
-                    , function errorCallback(err) {
+                , function errorCallback(err) {
+                      /*  swal({
+                            title: "Registering Client Account!",
+                            text: "email already registered with another account!",
+                            icon: "warning",
+                            button: "OK"
+                        });*/
                         vm.emailCheck = "";
-                        vm.emailCheck = "Email might already be registered with another account";
+                        vm.emailCheck = "Email already registered with another account";
                     });
         }
     }

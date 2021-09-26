@@ -6,10 +6,6 @@ var sendJsonResponse = function(res, status, content){
     res.json(content);
  };
 
- /*module.exports.booking = function(req, res){
-        
- };
-*/
  module.exports.appointmentCreate= function(req, res){
     if(!req.body.clientName || !req.body.eventDescription || !req.body.eventType){
         sendJsonResponse(res, 404, {
@@ -113,14 +109,4 @@ var sendJsonResponse = function(res, status, content){
  module.exports.appointmentReadOne = function(req, res){
      
 }
-
-module.exports.appointmentUpdateOne = function(req, res){
-     if(!req.params.appointmentid){
-        sendJsonResponse(res, 404, {"message" : "Not found, appointmentid is required"}); 
-        return; 
-     }
-    
-}
-
-
 

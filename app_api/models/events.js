@@ -22,7 +22,7 @@ var eventSchema = new mongoose.Schema({
     endDate: {type: String, required:true},
     startTime: {type: String, required:true},
     endTime: {type: String, required: true},
-    status: {type: String, "default": "scheduled"},
+    eventStatus: {type: String, "default": "scheduled"},
     reviews:[reviewSchema]
 });
 

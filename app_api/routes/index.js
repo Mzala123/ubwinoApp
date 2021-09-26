@@ -10,12 +10,14 @@ var auth = jwt({
 var ctrlAuth = require('../controllers/authentication');
 
 var ctrlBook = require('../controllers/booking');
+var ctrlUpdates = require('../controllers/update');
 
 //booking
 router.get('/bookings', ctrlBook.appointmentByName);
 router.post('/bookings', ctrlBook.appointmentCreate);
 router.get('/bookings/:appointmentid', ctrlBook.appointmentReadOne);
-router.put('/bookings/:appointmentid', ctrlBook.appointmentUpdateOne);
+router.post('/updates/:appointmentid', ctrlUpdates.updateAppointment);
+router.put('/updates/', ctrlUpdates.updateAppointments);
 router.delete('/bookings/:appointmentid', ctrlBook.appointmentDeleteOne);
 
 // authentication
