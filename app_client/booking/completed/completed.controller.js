@@ -36,6 +36,7 @@
 
              vm.addReview = function(id){
                 console.log("Add review to this event "+id);
+                
              }
 
         }

@@ -61,15 +61,6 @@
 
              }
 
-           /*  .then((willDelete) => {
-               if (willDelete) {
-                 swal("Poof! Your imaginary file has been deleted!", {
-                   icon: "success",
-                 });
-               } else {
-                 swal("Your imaginary file is safe!");
-               }*/
-
              vm.cancelAppointment = function(id){
                console.log("button la update "+id);
                swal({
