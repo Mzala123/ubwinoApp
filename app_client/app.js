@@ -16,6 +16,11 @@
               /*controller: 'registerCtrl',
               controllerAs: 'vm' */
            })
+           .when('/services', {
+            templateUrl: '/services/services.view.html'
+            /*controller: 'registerCtrl',
+            controllerAs: 'vm' */
+         })
             .when('/register', {
                 templateUrl: '/auth/register/register.view.html',
                 controller: 'registerCtrl',

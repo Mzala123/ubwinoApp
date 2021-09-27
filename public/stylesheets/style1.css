@@ -25,7 +25,7 @@ body {
   background-size: cover;
  }
  #carousel-image1{
-  background: url('../images1/ubwinos.jpg');
+  background: url('../images1/ubwinok.jpg');
   height: 60vh;
   background-size: cover;
  }
@@ -93,6 +93,28 @@ body {
   /*border-radius: 10px;*/
   box-shadow:.1rem .1rem .3rem rgba(0, 0, 0, .4);
   
+}
+
+#images-home4{
+  background: url('../images1/ubwinoa.jpg');
+  height: 70vh;
+  background-size: cover;
+  /*border-radius: 10px;*/
+  box-shadow:.1rem .1rem .3rem rgba(0, 0, 0, .4);
+}
+#images-home5{
+  background: url('../images1/ubwinob.jpg');
+  height: 70vh;
+  background-size: cover;
+  /*border-radius: 10px;*/
+  box-shadow:.1rem .1rem .3rem rgba(0, 0, 0, .4);
+}
+#images-home6{
+  background: url('../images1/ubwinok.jpg');
+  height: 70vh;
+  background-size: cover;
+  /*border-radius: 10px;*/
+  box-shadow:.1rem .1rem .3rem rgba(0, 0, 0, .4);
 }
 /*#tokometsa{
   border-radius: 10px;
