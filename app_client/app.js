@@ -46,11 +46,16 @@
               controller: 'scheduleCtrl',
               controllerAs: 'vm'
             })
-            /*.when('/scheduledEvents',{
-              templateUrl: '/booking/eventList/eventList.view.html',
-              controller: 'eventListCtrl',
+            .when('/cancelled',{
+              templateUrl: '/booking/cancelled/cancelled.view.html',
+              controller: 'cancelCtrl',
               controllerAs: 'vm'
-            })*/
+            })
+            .when('/concluded',{
+              templateUrl: '/booking/completed/completed.view.html',
+              controller: 'completeCtrl',
+              controllerAs: 'vm'
+            })
             .otherwise({ redirectTo: '/' });
             $locationProvider.html5Mode({
             enabled: true,

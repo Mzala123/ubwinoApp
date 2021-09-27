@@ -10,10 +10,20 @@ angular
        var createSchedule = function(scheduleData){
            return $http.post('/api/bookings',scheduleData);
        }
+
+      var updateScheduleEvent = function(appointmentid){
+          return $http.put('/api/updates?appointmentid='+appointmentid);
+      }
+
+      var cancelScheduledEvent = function(appointmentid){
+        return $http.put('/api/bookings?appointmentid='+appointmentid);
+    }
        
        return{
-           createSchedule : createSchedule
-           
+           createSchedule : createSchedule,
+           updateScheduleEvent : updateScheduleEvent,
+           cancelScheduledEvent : cancelScheduledEvent
+  
        }
    }
 

@@ -16,53 +16,6 @@ module.exports.updateAppointment = function(req, res){
       sendJsonResponse(res, 404, {"message" : "Not found, appointmentid is required"}); 
       return; 
     }
-   /* Appointment
-        .findAndModify(
-            {_id: appointmentid},
-            {
-                $set: {
-                    "Done":eventStatus
-                }
-            },
-            {},
-            function(err, appointment){
-                  if(err){
-                      sendJsonResponse(res, 400, err);
-                  }
-                  else{  
-                      sendJsonResponse(res, 201, appointment);
-                  }
-            }
-        );*/
-
-   /* var appointmentid = req.query.appointmentid;
-    if(!appointmentid){
-      sendJsonResponse(res, 404, {"message" : "Not found, appointmentid is required"}); 
-      return; 
-    }
-    Appointment
-       .findById(appointmentid)
-       .exec(
-           function(err, appointment){
-              if(!appointment){
-                  sendJsonResponse(res, 404, {"message" : "Event not found"});
-                }
-                else if(err){
-                    sendJsonResponse(res, 404, err);
-                    return;
-                }
-                appointment.eventStatus = "Done";
-                appointment.save(function(err, appointment){
-                    if(err){
-                        sendJsonResponse(res, 404, err);
-                    }
-                    else{
-                        sendJsonResponse(res, 200, appointment);
-                    }
-                });
-           }
-       )*/
-
 }
 
 

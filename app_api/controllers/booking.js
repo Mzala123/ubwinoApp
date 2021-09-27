@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Appointment = mongoose.model('Event')
+var Appointment = mongoose.model('Event');
 
 var sendJsonResponse = function(res, status, content){
     res.status(status);
@@ -37,48 +37,42 @@ var sendJsonResponse = function(res, status, content){
 
 
 
- module.exports.appointmentDeleteOne = function(req, res){
-         var appointmentid = req.params.appointmentid;
-         if(appointmentid){
-             Appointment
-                 .findByIdAndRemove(appointmentid)
-                 .exec(
-                     function(err, appointment){
-                         if(err){
-                           sendJsonResponse(res, 404, err);
-                           return;
-                         }
-                         sendJsonResponse(res, 204, {"Message":"Appointment cancelled"});
-                     }
-                 );
-         }
-         else{
-            sendJsonResponse(res, 404, {"message" : "appointmentid"});
-         }
+ module.exports.cancelAppointment = function(req, res){
+    console.log("Simufika munotu ait");
+    var appointmentid = req.query.appointmentid;
+    var ids;
+    var id = mongoose.Types.ObjectId(appointmentid);
+    appointmentid === Appointment._id;
+     
+    console.log("The id is "+id);
+    if(!appointmentid){
+      sendJsonResponse(res, 404, {"message" : "Not found, appointmentid is required"}); 
+      return; 
+    }
+    Appointment
+       .findById(appointmentid)
+       .exec(
+           function(err, appointment){
+              if(!appointment){
+                  sendJsonResponse(res, 404, {"message" : "Event not found"});
+                }
+                else if(err){
+                    sendJsonResponse(res, 404, err);
+                    return;
+                }
+                appointment.eventStatus = "Cancelled";
+                appointment.save(function(err, appointment){
+                    if(err){
+                        sendJsonResponse(res, 404, err);
+                    }
+                    else{
+                        sendJsonResponse(res, 200, appointment);
+                    }
+                });
+           }
+       )
  }
 
- /*module.exports.appointmentByName = function(req, res){
-      if(req.params && req.params.clientName){
-          Appointment
-              .findById(req.params.clientName)
-              .exec(function(err, appointment){
-                  if(!appointment){
-                    sendJsonResponse(res, 404, {"message" : "You haven't Scheduled an appointment"});
-                    return;
-                  }
-                  else if(err){
-                     sendJsonResponse(res, 404, err);
-                     return;
-                  }
-                  else{
-                      sendJsonResponse(res, 200, appointment);
-                  }
-              })
-      }
-      else{
-        sendJsonResponse(res, 404, {"message" : "no Appointment schedule in request"});
-    }
- }*/
 
  module.exports.appointmentByName = function(req, res){
      var name = req.query.name;

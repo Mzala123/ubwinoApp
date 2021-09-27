@@ -23,17 +23,17 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="col-md-4 col-lg-9">
             <div class="card o-hidden border-0 shadow-sm my-3">
                 <div class="card-header d-flex justify-content-center" style="font-weight: bold; 
                         background-color:white; color:black;">
-                    <h6>MY APPOINTMENT LIST</h6>
+                    <h6> CONCLUDED APPOINTMENTS </h6>
                 </div>
                 <div class="card-body p-4" style="background-color: #1e656d;">
                    <!-- <form ng-submit="vm.onSubmit()">-->
                     <p>
-                    <label for="filter" style="color: white;">Find Scheduled appointment</label>
+                    <label for="filter" style="color: white;">Find appointment to add review</label>
                     <input id="filter" type="text", name="filter", ng-model="textFilter"></p>
                     <div class="error" style="color: white;"> {{ vm.message }}</div>
                   <div class="row list-group">
@@ -43,14 +43,9 @@
                         <h4>
                        <a href="">{{ appointment.eventType }}</a>
                         <span class="badge pull-right badge-default"> 
-                            
-                        <button id="appointmentBtn" class="btn btn-outline-warning"
-                          ng-click="vm.cancelAppointment(appointment._id)"> Cancel </button>
-
-                        <button  id="appointmentBtn" class="btn btn-outline-warning" 
-                            ng-click="vm.updateAppointment(appointment._id)">update</button>
-                      </span>
-                        <span class="badge pull-right badge-default"></span>
+                            <button id="appointmentBtn" class="btn btn-outline-warning"
+                              ng-click="vm.addReview(appointment._id)"> Add Review </button>
+                        </span>
                     </h4>
                    </p>
                        <p class="address">
@@ -69,13 +64,8 @@
                   </div>
                 </div>
             </div>
-            <!--<a ng-click="vm.popupEventForm()">   
-               <button class="btn btn-primary"> Schedule Appointment</button></a>
-              <a ng-click="vm.popupEventForm()" class="btn btn-success"> Create appointment</a>-->
 
-        </div>
-
-    </div>
+     </div>
 </div>
 
 <footer-generic></footer-generic>
