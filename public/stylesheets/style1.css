@@ -185,6 +185,15 @@ body {
           background-color: #eff4f5;
           border-color: #fac564; 
   }
+
+.btn-danger{
+  background-color: #dd2e2e;
+  border-color:#dd2e2e;
+  font-size:12px;
+  height: 30px;
+  width:110px;
+  border-radius: 0px !important;
+}
 .btn-primary:focus, .btn-primary.focus {
           -webkit-box-shadow: 0 0 0 0.2rem rgba(120, 213, 239, 0.5);
           box-shadow: 0 0 0 0.2rem rgba(120, 213, 239, 0.5); 

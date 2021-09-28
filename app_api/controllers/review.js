@@ -13,7 +13,11 @@ var sendJsonResponse = function(res, status, content){
      var appointmentid = req.params.appointmentid;
      var id = mongoose.Types.ObjectId(appointmentid);
      appointmentid === Appointment._id;
-     if(appointmentid){
+     console.log("the appointment id is"+appointmentid);
+     if(!appointmentid){
+        sendJsonResponse(res, 404, {"message" : "Not found, appointmentid is required"}); 
+        return; 
+      }
          Appointment
               .findById(appointmentid)
               .select('reviews')
@@ -23,17 +27,18 @@ var sendJsonResponse = function(res, status, content){
                           sendJsonResponse(res, 404, err);
                       }
                       else{
-                         doAddReview(req, res, appointment);
+                        console.log(appointment);
+                        //sendJsonResponse(res, 200, appointment);
+                        doAddReview(req, res, appointment);   
                       }
                   }
               )
-     }
-     else{
-         sendJsonResponse(res, 404, {"message":"Not found appointment required"});
-     }
+     
  }
 
- var doAddReview = function(req, res){
+ var doAddReview = function(req, res, appointment){
+    // var appointment;
+     console.log(appointment);
       if(!appointment){
         sendJsonResponse(res, 404, {"message":"Appointment not found"});
       }
@@ -42,15 +47,51 @@ var sendJsonResponse = function(res, status, content){
               rating: req.body.rating,
               reviewText: req.body.reviewText
           });
-          appointment.save(function(err, location){
+          appointment.save(function(err, appointment){
               var thisReview;
               if(err){
                   console.log(err);
                   sendJsonResponse(res, 400, err);
               }
               else{
-                  
+                updateAverageRating(appointment._id);
+                thisReview = appointment.reviews[appointment.reviews.length-1];
+                sendJsonResponse(res, 201, thisReview);
               }
           })
       }
  }
+
+ var updateAverageRating = function(appointmentid){
+    Appointment
+       .findById(appointmentid)
+       .select('rating reviews')
+       .exec(
+           function(err, appointment){
+               if(!err){
+                   doSetAverageRating(appointment);
+               }
+           });
+       
+};
+
+var doSetAverageRating = function(appointment){
+    var i, reviewCount, ratingAverage, ratingTotal;
+    if(appointment.reviews && appointment.reviews.length > 0){
+        reviewCount = appointment.reviews.length;
+        ratingTotal = 0;
+        for(i =0; i < reviewCount; i++){
+            ratingTotal = ratingTotal + appointment.reviews[i].rating;
+        }
+        ratingAverage = parseInt(ratingTotal / reviewCount, 10);
+        appointment.rating = ratingAverage;
+        appointment.save(function(err){
+        if(err){
+         console.log(err);
+        }
+        else{
+         console.log("Average rating updated to", ratingAverage);
+        }
+        });
+    }
+};

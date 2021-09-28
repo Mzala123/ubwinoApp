@@ -24,7 +24,7 @@ router.put('/updates/', ctrlUpdates.updateAppointments);
 router.put('/bookings/', ctrlBook.cancelAppointment);
 
 //Reviews
-router.post('/bookReview/:appointmentid/review',ctrlReview.addReview);
+router.post('/bookings/:appointmentid/reviews',ctrlReview.addReview);
 //router.post('/reviews',ctrlReview.addReview);
 
 

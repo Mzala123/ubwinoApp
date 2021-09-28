@@ -3,6 +3,7 @@
     angular
        .module('ubwinoApp')
        .controller('completeCtrl', completeCtrl);
+      // .factory('appointmentData', appointmentData);
 
         completeCtrl.$inject = ['$location', 'authentication', 'calendly'];
 
@@ -14,9 +15,7 @@
         vm.formData={};
         vm.formData.clientName = authentication.currentUser();
         console.log(vm.formData.clientName.email);
-        var eventStatus = "Cancelled";
-        console.log("The status is "+eventStatus);
-
+        vm.data = {};
         var eventStatus = "Done";
         console.log("The status is "+eventStatus);
 
@@ -35,10 +34,15 @@
              });
 
              vm.addReview = function(id){
-                console.log("Add review to this event "+id);
-                
+               console.log("Add review to this event "+id);
+               calendly.setIdData(id);
+               
              }
 
+             
+
         }
+
+      
 
 })();
