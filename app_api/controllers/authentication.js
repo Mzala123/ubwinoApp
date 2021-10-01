@@ -84,3 +84,19 @@ var sendJsonResponse = function(res, status, content){
        }
      })(req, res);
  }
+
+ module.exports.forgotPassword = function(req, res){
+         var email = req.body.email;
+         if(!email){
+             sendJsonResponse(res, 404, {"message": "email not found, add email"});
+         }
+         User
+          .findOne({email: email})
+          .exec(function(err, user){
+              if(err){
+                sendJsonResponse(res, 404, {"message": "User email does not exist"});
+              }
+              var token;
+              token = user.generateJwt({_id : user._id});
+          })
+ }

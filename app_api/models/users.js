@@ -13,7 +13,11 @@ var userSchema = new mongoose.Schema({
       required : true
   },
     hash : String,
-    salt : String
+    salt : String,
+  resetink : {
+      data : String,
+      dafault: ''
+  }
 });
 
 userSchema.methods.setPassword = function(password){

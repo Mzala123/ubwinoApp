@@ -32,7 +32,6 @@
 
         var addReviewById = function(appointmentid, data){
             return $http.post('/api/bookings/'+appointmentid+'/reviews',data);
-
            };
 
         return{

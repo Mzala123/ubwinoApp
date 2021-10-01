@@ -25,6 +25,7 @@ router.put('/bookings/', ctrlBook.cancelAppointment);
 
 //Reviews
 router.post('/bookings/:appointmentid/reviews',ctrlReview.addReview);
+
 //router.post('/reviews',ctrlReview.addReview);
 
 
@@ -32,5 +33,7 @@ router.post('/bookings/:appointmentid/reviews',ctrlReview.addReview);
 router.post('/register', ctrlAuth.register);
 router.post('/verify', ctrlAuth.verifyEmail);
 router.post('/login', ctrlAuth.login);
+
+router.put('/forgotPassword', ctrlAuth.forgotPassword);
 
 module.exports = router;
