@@ -25,6 +25,7 @@ router.put('/bookings/', ctrlBook.cancelAppointment);
 
 //Reviews
 router.post('/bookings/:appointmentid/reviews',ctrlReview.addReview);
+router.get('/bookings/:appointmentid/reviews/:reviewid', ctrlReview.reviewsRead);
 
 //router.post('/reviews',ctrlReview.addReview);
 

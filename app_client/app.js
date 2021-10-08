@@ -66,6 +66,11 @@
               controller: 'reviewModalCtrl',
               controllerAs: 'vm'
             })
+            .when('/reviewDetails',{
+              templateUrl: '/booking/reviewDetails/reviewDetails.view.html',
+              controller: 'reviewDetailsCtrl',
+              controllerAs: 'vm'
+            })
             .otherwise({ redirectTo: '/' });
             $locationProvider.html5Mode({
             enabled: true,

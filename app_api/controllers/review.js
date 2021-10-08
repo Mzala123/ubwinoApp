@@ -95,3 +95,48 @@ var doSetAverageRating = function(appointment){
         });
     }
 };
+
+module.exports.reviewsRead =function(req, res){
+    var name = req.query.name;
+    var email = req.query.email;
+    //var appointmentid= req.params.appointmentid;
+    /*var id = mongoose.Types.ObjectId(appointmentid);
+    appointmentid === Appointment._id;*/
+
+      if(req.params && req.params.appointmentid && req.params.reviewid){
+           Appointment
+              .findById(appointmentid)
+              .select("name reviews")
+              .exec(function(err, appointment){
+                  var response, review;
+                  if(!appointment){
+                      sendJsonResponse(res, 404, {"message":" appointment not found"});
+                      return;
+                  }else if(err){
+                      sendJsonResponse(res, 404, err);
+                  }
+                  if(appointment.reviews && appointment.reviews.length > 0){
+                      review = appointment.reviews.id(req.params.reviewid);
+                      if(!review){
+                        sendJsonResponse(res, 404, {"message" : "review id not found"});
+                      }
+                      else{
+                          response = {
+                              appointment:{
+                                  name : appointment.name,
+                                  id: req.params.appointmentid
+                              },
+                              review : review
+                          };
+                          sendJsonResponse(res, 200, response);
+                      }
+                  }else{
+                      sendJsonResponse(res, 404, {"message": "no such review found"});
+                  }
+
+              })
+      }
+      else{
+          sendJsonResponse(res, 404, {"message" :"not found, appointmentid and reviewid are both required"});
+      }
+}
