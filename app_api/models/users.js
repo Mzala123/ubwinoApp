@@ -12,6 +12,10 @@ var userSchema = new mongoose.Schema({
       type : String,
       required : true
   },
+  userType: {
+      type: String,
+      default: "client"
+  },
     hash : String,
     salt : String,
   resetink : {

@@ -97,12 +97,7 @@ var doSetAverageRating = function(appointment){
 };
 
 module.exports.reviewsRead =function(req, res){
-    var name = req.query.name;
-    var email = req.query.email;
-    //var appointmentid= req.params.appointmentid;
-    /*var id = mongoose.Types.ObjectId(appointmentid);
-    appointmentid === Appointment._id;*/
-
+      var appointmentid= req.params.appointmentid;
       if(req.params && req.params.appointmentid && req.params.reviewid){
            Appointment
               .findById(appointmentid)

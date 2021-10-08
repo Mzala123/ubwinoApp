@@ -101,12 +101,17 @@ var sendJsonResponse = function(res, status, content){
  }
 
  module.exports.appointmentReadOne = function(req, res){
-     if(req.params && req.params.appointmentid){
+     var appointmentid;
+     if(!req.params.appointmentid)
+     {
+       sendJsonResponse(res, 404, {"message":" appointment id required"});
+     }
+     else if(req.params && req.params.appointmentid){
          Appointment
             .findById(req.params.appointmentid)
             .exec(function(err, appointment){
                 if(!appointment){
-                    sendJsonResponse(res, 404, {"message":"Appointment not foung"});
+                    sendJsonResponse(res, 404, {"message":"Appointment not found"});
                     return;
                 }
                 else if(err){
@@ -116,7 +121,8 @@ var sendJsonResponse = function(res, status, content){
                     sendJsonResponse(res, 200, appointment);
                 }
             })
-     }else{
+     }
+     else{
          sendJsonResponse(res, 404, {"message" : "Not found, appointmentid required"});
      }
      

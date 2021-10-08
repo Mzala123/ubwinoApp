@@ -18,6 +18,7 @@ var sendJsonResponse = function(res, status, content){
 
      user.name = req.body.name;
      user.email = req.body.email;
+     user.userType = req.body.userType;
 
      user.setPassword(req.body.password);
 

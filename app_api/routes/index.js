@@ -13,6 +13,7 @@ var ctrlBook = require('../controllers/booking');
 var ctrlUpdates = require('../controllers/update');
 var ctrlStatus = require('../controllers/eventStatus');
 var ctrlReview = require('../controllers/review');
+var ctrlSchedule = require('../controllers/schedule');
 
 //booking
 router.get('/bookings', ctrlBook.appointmentByName);
@@ -22,6 +23,7 @@ router.get('/events/', ctrlStatus.appointmentByStatus);
 router.post('/updates/:appointmentid', ctrlUpdates.updateAppointment);
 router.put('/updates/', ctrlUpdates.updateAppointments);
 router.put('/bookings/', ctrlBook.cancelAppointment);
+router.get('/schedule', ctrlSchedule.allAppointmentsByStatus);
 
 //Reviews
 router.post('/bookings/:appointmentid/reviews',ctrlReview.addReview);
