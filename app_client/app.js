@@ -71,6 +71,17 @@
               controller: 'reviewDetailsCtrl',
               controllerAs: 'vm'
             })
+            .when('/admin',{
+              templateUrl: '/admin/admin.view.html',
+              controller: 'adminCtrl',
+              controllerAs: 'vm'
+            })
+            .when('/cancel',{
+              templateUrl: '/adminSection/cancelled/cancelled.view.html',
+              /*controller: 'adminCtrl',
+              controllerAs: 'vm'*/
+            })
+           
             .otherwise({ redirectTo: '/' });
             $locationProvider.html5Mode({
             enabled: true,

@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 
-var userSchema = new mongoose.Schema({
+var adminSchema = new mongoose.Schema({
   email : {
       type: String,
       unique: true,
@@ -14,23 +14,23 @@ var userSchema = new mongoose.Schema({
   },
   userType: {
     type: String, 
-    "default": "client"
+     required: true
   },
     hash : String,
     salt : String
 });
 
-userSchema.methods.setPassword = function(password){
+adminSchema.methods.setPassword = function(password){
     this.salt = crypto.randomBytes(16).toString('hex');
     this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('base64'); 
 };
 
-userSchema.methods.validPassword = function(password){
+adminSchema.methods.validPassword = function(password){
     var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('base64');
     return this.hash === hash;
 };
 
-userSchema.methods.generateJwt = function(){
+adminSchema.methods.generateJwt = function(){
     var expiry = new Date();
     expiry.setDate(expiry.getDate() + 7);
 
@@ -42,4 +42,4 @@ userSchema.methods.generateJwt = function(){
     }, 'thisSecret');
 };
 
-mongoose.model('User', userSchema);
+mongoose.model('Admin', adminSchema);

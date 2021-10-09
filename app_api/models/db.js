@@ -50,3 +50,4 @@ process.on('SIGINT', function(){
 
 require('./events');
 require('./users');
+require('./admin');

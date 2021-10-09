@@ -14,6 +14,7 @@ var ctrlUpdates = require('../controllers/update');
 var ctrlStatus = require('../controllers/eventStatus');
 var ctrlReview = require('../controllers/review');
 var ctrlSchedule = require('../controllers/schedule');
+var ctrlAdmin = require('../controllers/adminAuth');
 
 //booking
 router.get('/bookings', ctrlBook.appointmentByName);
@@ -38,5 +39,9 @@ router.post('/verify', ctrlAuth.verifyEmail);
 router.post('/login', ctrlAuth.login);
 
 router.put('/forgotPassword', ctrlAuth.forgotPassword);
+
+// admin Authentication
+router.post('/adminRegister', ctrlAdmin.registerAdmin);
+router.post('/adminLogin', ctrlAdmin.loginAdmin);
 
 module.exports = router;
