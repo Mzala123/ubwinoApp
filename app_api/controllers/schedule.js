@@ -12,10 +12,10 @@ module.exports.allAppointmentsByStatus = function (req, res) {
     var eventStatus = req.query.eventStatus;
     var userType = req.query.userType;
 
-    if (!eventStatus || !userType) {
+    if (!eventStatus) {
         sendJsonResponse(res, 404, { "message": "event status and userType required" });
     }
-    else if (userType === "Admin") {
+   // else if (userType === "Admin") {
         Appointment
             .find({eventStatus:eventStatus})
             .exec(function (err, appointment) {
@@ -29,10 +29,8 @@ module.exports.allAppointmentsByStatus = function (req, res) {
                 }
             });
 
-    }
-    else if(userType !== "Admin"){
-        sendJsonResponse(res, 404, {"message":"incorrect usertype"});
-    }
+   // }
+   
     /* else if(eventStatus ||  userType){
          User
            .find({eventStatus:{$elemMatch:{userType:userType}}})

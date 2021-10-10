@@ -24,12 +24,12 @@
         <div class="card o-hidden border-0 shadow-sm my-3">
             <div class="card-header d-flex justify-content-center" style="font-weight: bold; 
                     background-color:white; color:black;">
-                <h6> ALL CANCELLED APPOINTMENTS </h6>
+                <h6> ALL SCHEDULED APPOINTMENTS </h6>
             </div>
             <div class="card-body p-4" style="background-color: #1e656d;">
                <!-- <form ng-submit="vm.onSubmit()">-->
                 <p>
-                <label for="filter" style="color: white;">Find cancelled appointment</label>
+                <label for="filter" style="color: white;">Find appointment</label>
                 <input id="filter" type="text", name="filter", ng-model="textFilter"></p>
                 <div class="error" style="color: white;"> {{ vm.message }}</div>
               <div class="row list-group">
@@ -37,9 +37,7 @@
                 | filter : textFilter" style="background-color: #2f757c;">
                 <p> 
                     <h4>
-                   <a href="">{{ appointment.eventType }}</a>
-                   
-                    
+                   <a href="">{{ appointment.eventType }}</a>            
                 </h4>
                </p>
                    <p class="address">

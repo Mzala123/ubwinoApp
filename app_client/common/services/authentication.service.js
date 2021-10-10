@@ -63,6 +63,12 @@
               $window.localStorage.removeItem('ubwino-token');
             };
 
+            var removeClient = function(clientid){
+              return $http.delete('api/clients/'+clientid);
+            }
+          
+
+
             return {
                 currentUser : currentUser,
                 saveToken: saveToken,
@@ -71,7 +77,9 @@
                 register: register,
                 login : login,
                 logout : logout,
-                checkEmail : checkEmail
+                checkEmail : checkEmail,
+                removeClient : removeClient
+                
             };
        }
     

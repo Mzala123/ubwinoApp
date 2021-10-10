@@ -14,6 +14,11 @@
             console.log("mwalandila ma values koma " +email +" "+name +" "+eventStatus);
             return $http.get('/api/events?email='+email+ '&name='+name+ '&eventStatus='+eventStatus);
         };
+      
+        var getAllAppointmentsByStatus = function(eventStatus){
+            console.log("mwalandila ma values "+ eventStatus);
+            return $http.get('/api/schedule?eventStatus='+eventStatus);
+        }
 
         this.TempData="";
         var vm = this;
@@ -37,6 +42,7 @@
         return{
             getAppointmentByName : getAppointmentByName,
             getAppointmentsByStatus : getAppointmentsByStatus, 
+            getAllAppointmentsByStatus: getAllAppointmentsByStatus,
             setIdData : setIdData,
             getIdData : getIdData,
             getDataByAppointmentId : getDataByAppointmentId,

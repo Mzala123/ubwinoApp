@@ -86,6 +86,45 @@ var sendJsonResponse = function(res, status, content){
      })(req, res);
  }
 
+
+module.exports.allClients = function(req, res){
+       User
+         .find({})
+         .exec(function(err, user){
+             if(err){
+                  sendJsonResponse(res, 404, err);
+             }
+             else{
+                 sendJsonResponse(res, 201, user);
+                 console.log(user);
+             }
+         })
+}
+
+module.exports.removeClient = function(req, res){
+      
+    var clientid = req.params.clientid;
+    var id = mongoose.Types.ObjectId(clientid);
+    clientid === User._id;
+     
+    if(!clientid){
+        sendJsonResponse(res, 404, {"message":"client id required"});
+    }
+    else{
+         User
+           .findByIdAndRemove(clientid)
+           .exec(function(err, user){
+               if(err){
+                   sendJsonResponse(res, 404, err);
+               }
+               else{
+                   sendJsonResponse(res, 204, null);
+               }
+
+           });
+    }
+}
+
  module.exports.forgotPassword = function(req, res){
          var email = req.body.email;
          if(!email){

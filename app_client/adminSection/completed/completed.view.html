@@ -24,23 +24,25 @@
         <div class="card o-hidden border-0 shadow-sm my-3">
             <div class="card-header d-flex justify-content-center" style="font-weight: bold; 
                     background-color:white; color:black;">
-                <h6> ALL CANCELLED APPOINTMENTS </h6>
+                <h6> ALL CARRIED OUT APPOINTMENTS </h6>
             </div>
             <div class="card-body p-4" style="background-color: #1e656d;">
                <!-- <form ng-submit="vm.onSubmit()">-->
                 <p>
-                <label for="filter" style="color: white;">Find cancelled appointment</label>
+                <label for="filter" style="color: white;">Find appointment</label>
                 <input id="filter" type="text", name="filter", ng-model="textFilter"></p>
                 <div class="error" style="color: white;"> {{ vm.message }}</div>
               <div class="row list-group">
                 <div class="col-xs-12 list-group-item" ng-repeat="appointment in vm.data.appointments 
                 | filter : textFilter" style="background-color: #2f757c;">
                 <p> 
-                    <h4>
-                   <a href="">{{ appointment.eventType }}</a>
-                   
-                    
-                </h4>
+                    <h5>
+                   <a href="">{{ appointment.eventType }}</a>            
+                   </h5>
+                   <span class="badge pull-right badge-default"> 
+                   <a href=""> <button id="appointmentBtn" class="btn btn-outline-warning"
+                       ng-click="vm.viewReview(appointment._id)"> Check Review </button> </a>
+                 </span>
                </p>
                    <p class="address">
                     <label style="color: white; font-size: 14px;"> Client name - {{ appointment.clientName }}   </label>

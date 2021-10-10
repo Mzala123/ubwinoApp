@@ -78,8 +78,23 @@
             })
             .when('/cancel',{
               templateUrl: '/adminSection/cancelled/cancelled.view.html',
-              /*controller: 'adminCtrl',
-              controllerAs: 'vm'*/
+              controller: 'allCancelledCtrl',
+              controllerAs: 'vm'
+            })
+            .when('/complete',{
+              templateUrl: '/adminSection/completed/completed.view.html',
+              controller: 'allCompletedCtrl',
+              controllerAs: 'vm'
+            })
+            .when('/ongoing',{
+              templateUrl: '/adminSection/scheduled/scheduled.view.html',
+              controller: 'allOngoingCtrl',
+              controllerAs: 'vm'
+            })
+            .when('/settings',{
+              templateUrl: '/adminSection/settings/settings.view.html',
+              controller: 'settingsCtrl',
+              controllerAs: 'vm'
             })
            
             .otherwise({ redirectTo: '/' });

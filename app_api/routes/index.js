@@ -37,11 +37,14 @@ router.get('/bookings/:appointmentid/reviews/:reviewid', ctrlReview.reviewsRead)
 router.post('/register', ctrlAuth.register);
 router.post('/verify', ctrlAuth.verifyEmail);
 router.post('/login', ctrlAuth.login);
+router.get('/clients', ctrlAuth.allClients);
+router.delete('/clients/:clientid', ctrlAuth.removeClient);
 
 router.put('/forgotPassword', ctrlAuth.forgotPassword);
 
 // admin Authentication
 router.post('/adminRegister', ctrlAdmin.registerAdmin);
 router.post('/adminLogin', ctrlAdmin.loginAdmin);
+
 
 module.exports = router;

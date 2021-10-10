@@ -47,7 +47,10 @@
            logout = function(){
              $window.localStorage.removeItem('ubwino-token');
            };
-
+          
+           var getAllClients = function(){
+            return $http.get('/api/clients');
+        }
 
            
            return {
@@ -57,6 +60,7 @@
             isLoggedIn: isLoggedIn,
             login : login,
             logout : logout,
+            getAllClients : getAllClients
            
         };
        }
