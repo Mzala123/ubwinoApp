@@ -21,7 +21,7 @@
 
         vm.viewReview = function(id){
            console.log("The retrieved id is ahahahaha "+id);
-           
+           calendly.setIdData(id);
         }
 
         calendly.getAllAppointmentsByStatus(eventStatus)

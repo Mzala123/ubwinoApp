@@ -39,6 +39,10 @@
             return $http.post('/api/bookings/'+appointmentid+'/reviews',data);
            };
 
+        var getReviewData = function(appointmentid){
+              return $http.get('/api/bookings/'+appointmentid);
+        }
+
         return{
             getAppointmentByName : getAppointmentByName,
             getAppointmentsByStatus : getAppointmentsByStatus, 
@@ -46,7 +50,8 @@
             setIdData : setIdData,
             getIdData : getIdData,
             getDataByAppointmentId : getDataByAppointmentId,
-            addReviewById : addReviewById
+            addReviewById : addReviewById,
+            getReviewData : getReviewData
         }
 
     }

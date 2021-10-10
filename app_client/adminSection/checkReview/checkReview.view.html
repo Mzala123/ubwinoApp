@@ -1,0 +1,64 @@
+<adminnavigation></adminnavigation>
+
+<div class="container">
+    <div class="row mt-2">
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="card shadow-sm my-3">
+                <div class="card-body p-2">
+                    <div class="card-header  d-flex justify-content-center p-1">
+                        <i class="fa fa-user-circle" style="font-size:60px;color:#1e656d;"></i>
+                    </div>
+                    <div class="card-header d-flex justify-content-center p-2">
+                        <p ng-model="vm.formData.clientName" class="text-dark" style="font-weight: bold;">
+                            Welcome Admin {{ vm.currentUser.name }} </p>
+                    </div>
+                    <div class="card-text d-flex justify-content-center p-4">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-lg-8">
+            <div class="card o-hidden border-0 shadow-sm my-3">
+                <div class="card-header d-flex justify-content-center" style="font-weight: bold; 
+                    background-color:white; color:black;">
+                    <h6> CLIENT REVIEW </h6>
+                </div>
+                <div class="card-body p-4" style="background-color: #edf1f1;">
+                    <!--<div class="error" style="color:black;"> {{ vm.message }}</div> -->
+
+                    <div class="review" ng-repeat="review in vm.data.appointments.reviews | orderBy:'createdOn':true">
+
+                        <div class="well well-sm review-header">
+                            <span class="rating" rating-stars rating="review.rating"></span>
+                            <small class="reviewTimestamp">Date of Review | {{ review.createdOn | date : 'd MMMM yyyy' }} |</small>
+                            <div class="col-xs-12">
+                                <p ng-bind-html="review.reviewText"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div class="panel-body review-container">
+                <div class="review" ng-repeat="review in vm.data.location.reviews | orderBy:'createdOn':true">
+                    <div class="row">
+                        <div class="well well-sm review-header">
+                            <span class="rating" rating-stars rating="review.rating"></span>
+                            <span class="reviewAuthor"> {{ review.author }} </span>
+                            <small class="reviewTimestamp">{{ review.createdOn | date : 'd MMMM yyyy' }}</small>
+                        </div>
+                        <div class="col-xs-12">
+                            <p ng-bind-html="review.reviewText"></p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer-generic></footer-generic>

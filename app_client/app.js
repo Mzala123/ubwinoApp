@@ -96,6 +96,11 @@
               controller: 'settingsCtrl',
               controllerAs: 'vm'
             })
+            .when('/checkReview',{
+              templateUrl: '/adminSection/checkReview/checkReview.view.html',
+              controller: 'checkReviewCtrl',
+              controllerAs: 'vm'
+            })
            
             .otherwise({ redirectTo: '/' });
             $locationProvider.html5Mode({
