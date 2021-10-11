@@ -27,7 +27,7 @@ passport.use(new LocalStrategy({
     }
     ));
 
-passport.use(new LocalStrategy({
+/*passport.use(new LocalStrategy({
         usernameField: 'email'
        },
        function(username, password, done){
@@ -48,4 +48,4 @@ passport.use(new LocalStrategy({
                return done(null, admin);
            });
        }
-    ));
+    ));*/

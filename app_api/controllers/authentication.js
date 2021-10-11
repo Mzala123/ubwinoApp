@@ -61,6 +61,7 @@ var sendJsonResponse = function(res, status, content){
  };
 
  module.exports.login = function(req, res){
+    // var user = new User();
      if(!req.body.email || !req.body.password){
          sendJsonResponse(res, 404, {
              "message" : "All fields required!"
